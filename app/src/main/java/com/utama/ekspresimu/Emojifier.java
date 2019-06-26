@@ -1,20 +1,4 @@
-/*
-* Copyright (C) 2017 The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*  	http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-package com.example.android.emojify;
+package com.utama.ekspresimu;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -23,6 +7,7 @@ import android.graphics.Canvas;
 import android.util.SparseArray;
 import android.widget.Toast;
 
+import com.utama.ekspresimu.R;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
@@ -148,12 +133,12 @@ class Emojifier {
 
         // Determine and log the appropriate emoji
         Emoji emoji;
-        if(smiling) {
+        if (smiling) {
             if (leftEyeClosed && !rightEyeClosed) {
                 emoji = Emoji.LEFT_WINK;
-            }  else if(rightEyeClosed && !leftEyeClosed){
+            } else if (rightEyeClosed && !leftEyeClosed) {
                 emoji = Emoji.RIGHT_WINK;
-            } else if (leftEyeClosed){
+            } else if (leftEyeClosed) {
                 emoji = Emoji.CLOSED_EYE_SMILE;
             } else {
                 emoji = Emoji.SMILE;
@@ -161,9 +146,9 @@ class Emojifier {
         } else {
             if (leftEyeClosed && !rightEyeClosed) {
                 emoji = Emoji.LEFT_WINK_FROWN;
-            }  else if(rightEyeClosed && !leftEyeClosed){
+            } else if (rightEyeClosed && !leftEyeClosed) {
                 emoji = Emoji.RIGHT_WINK_FROWN;
-            } else if (leftEyeClosed){
+            } else if (leftEyeClosed) {
                 emoji = Emoji.CLOSED_EYE_FROWN;
             } else {
                 emoji = Emoji.FROWN;
@@ -173,7 +158,7 @@ class Emojifier {
 
         // Log the chosen Emoji
         Timber.d("whichEmoji: " + emoji.name());
-        
+
         // return the chosen Emoji
         return emoji;
     }
@@ -217,7 +202,7 @@ class Emojifier {
 
         return resultBitmap;
     }
-    
+
 
     // Enum for all possible Emojis
     private enum Emoji {
